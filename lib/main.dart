@@ -12,9 +12,10 @@ class RecipeApp extends StatelessWidget {
     final ThemeData theme = ThemeData();
     return MaterialApp(
       title: 'Recipe Calculator',
+      debugShowCheckedModeBanner: false,
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.green[450],
+          primary: Colors.grey,
           secondary: Colors.black,
           // background: Colors.white,
           // error: Colors.red,
@@ -55,13 +56,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildRecipeCard(Recipe recipe) {
     return Card(
-      child: Column(
-        children: <Widget>[
-          Image(image: AssetImage(recipe.imageUrl)),
-          Text(recipe.label),
-        ],
+      elevation: 2.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            Image(image: AssetImage(recipe.imageUrl)),
+            const SizedBox(
+              height: 14.0,
+            ),
+            Text(
+              recipe.label,
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Palatino',
+              ),
+            ),
+          ],
         ),
+      ),
     );
   }
-
 }
