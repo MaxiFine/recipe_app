@@ -15,7 +15,7 @@ class RecipeApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.grey,
+          primary: Colors.blue,
           secondary: Colors.black,
           // background: Colors.white,
           // error: Colors.red,
@@ -47,7 +47,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
-            return buildRecipeCard(Recipe.samples[index]);
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Text("Detail page");
+                    },
+                  ),
+                );
+              },
+              child: buildRecipeCard(Recipe.samples[index]),
+            );
           },
         ),
       ),
@@ -56,7 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildRecipeCard(Recipe recipe) {
     return Card(
-      elevation: 2.0,
+      elevation: 5.0,
+      shadowColor: const Color.fromARGB(255, 156, 253, 213),
+      clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
