@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'recipe.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -54,32 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Widget buildRecipeCard(Recipe recipe) {
-  //   return Card(
-  //     child: Column(
-  //       children: <Widget>[
-  //         Image(image: AssetImage(recipe.imageUrl)),
-  //         Text(recipe.label),
-  //       ],
-  //       ),
-  //   );
-  // }
-
   Widget buildRecipeCard(Recipe recipe) {
-  try {
-    final byteData = rootBundle.load(recipe.imageUrl);
-    print('Asset loaded successfully: ${recipe.imageUrl}');
-  } catch (e) {
-    print('Failed to load asset: ${recipe.imageUrl}, Error: $e');
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image(image: AssetImage(recipe.imageUrl)),
+          Text(recipe.label),
+        ],
+        ),
+    );
   }
 
-  return Card(
-    child: Column(
-      children: <Widget>[
-        Image(image: AssetImage(recipe.imageUrl)),
-        Text(recipe.label),
-      ],
-    ),
-  );
-}
 }
