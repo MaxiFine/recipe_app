@@ -3,8 +3,8 @@ import 'recipe.dart';
 
 class RecipeDetail extends StatefulWidget {
   final Recipe recipe;
-  const RecipeDetail({Key? key, required this.recipe, 
-  }) : super(key: key);
+  const RecipeDetail({super.key, required this.recipe, 
+  });
   @override
   _RecipeDetailState createState() {
     return _RecipeDetailState();
