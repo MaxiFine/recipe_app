@@ -2,9 +2,15 @@ class Recipe {
   String label;
   String imageUrl;
 
+  // adding ingredients
+int servings;
+List<Ingredients> ingredients;
+
   Recipe(
     this.label,
     this.imageUrl,
+    this.servings,
+    this.ingredients,
   );
 
   static List<Recipe> samples = [
@@ -32,12 +38,12 @@ class Recipe {
 
 }
 
-class Ingredient {
+class Ingredients {
   double quantity;
   String measure;
   String name;
 
-  Ingredient(
+  Ingredients(
     this.quantity,
     this.measure,
     this.name,
