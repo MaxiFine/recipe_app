@@ -51,7 +51,12 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 itemBuilder: (BuildContext context, int index) {
                   final ingredient = widget.recipe.ingredients[index];
                   return Text(
-                    '${ingredient.quantity} ${ingredient.measure} ${ingredient.name}',
+                    // seeting the quantity of the ingredient in the details page
+                    // to be the quantity of the ingredient times the slider value
+                    '${ingredient.quantity * _sliderVal} '
+                    '${ingredient.measure} ' 
+                    '${ingredient.name}',
+                    
                     style: const TextStyle(
                       fontSize: 17.0,
                       fontWeight: FontWeight.w500,
